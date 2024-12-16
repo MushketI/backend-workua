@@ -1,6 +1,9 @@
 <?php
 
+use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin-panel.welcome');
 });
+
+//Profile
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile.index');
+
+
+
